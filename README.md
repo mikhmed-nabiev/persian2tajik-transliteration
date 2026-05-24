@@ -63,7 +63,6 @@ Wraps a full MLOps pipeline: PyTorch Lightning · Hydra · DVC · MLflow · ONNX
 │   ├── raw/                        # stibiumghost clone
 │   └── processed/                  # parquet splits (train/val/test/flores_ood)
 ├── models/                         # checkpoints + ONNX (DVC)
-├── paper/                          # LaTeX source + compiled PDF
 ├── persian_tajik_translit/         # Python package
 │   ├── data/
 │   │   ├── download.py             # download_data()
@@ -243,7 +242,7 @@ Engines are GPU- and driver-specific and are excluded from git and DVC.
 ```bash
 # 1. Export checkpoint → ONNX (fp32)
 python commands.py export \
-    --checkpoint_path models/lstm-best.ckpt \
+    --checkpoint_path models/lstm-epoch\=01-val/chrf_pp\=49.10.ckpt \
     --output_dir models/onnx/lstm \
     --processed_dir data/processed
 
