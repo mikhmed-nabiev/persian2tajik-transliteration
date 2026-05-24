@@ -1,0 +1,8 @@
+defaults:
+  - model: lstm
+  - data: parstext
+  - train: default
+  - eval: default
+  - _self_
+
+project_name: "persian-tajik-translit"

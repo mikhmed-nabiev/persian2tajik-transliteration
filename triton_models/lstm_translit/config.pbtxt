@@ -1,0 +1,47 @@
+name: "lstm_translit"
+backend: "python"
+max_batch_size: 8
+
+input [
+  {
+    name: "text"
+    data_type: TYPE_STRING
+    dims: [ -1 ]
+  },
+  {
+    name: "direction"
+    data_type: TYPE_STRING
+    dims: [ 1 ]
+    optional: true
+  }
+]
+
+output [
+  {
+    name: "transliteration"
+    data_type: TYPE_STRING
+    dims: [ -1 ]
+  }
+]
+
+instance_group [
+  {
+    count: 1
+    kind: KIND_CPU
+  }
+]
+
+parameters {
+  key: "onnx_dir"
+  value { string_value: "/workspace/models/onnx_int8/lstm" }
+}
+
+parameters {
+  key: "direction"
+  value { string_value: "fa2tg" }
+}
+
+parameters {
+  key: "max_length"
+  value { string_value: "512" }
+}

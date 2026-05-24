@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.whl
+.Python
+.venv/
+venv/
+env/
+
+# uv
+.uv/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Data and models (tracked by DVC, not git)
+data/raw/
+data/processed/
+models/
+plots/
+
+# MLflow
+mlruns/
+mlflow.db
+
+# Hydra outputs
+outputs/
+multirun/
+.hydra/
+
+# Node
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Triton model weights (tracked by DVC)
+triton_models/byt5_translit/1/*.onnx
+
+# Logs
+*.log
+mlruns/
+
+# Credentials / secrets
+.env
+*.pem
+/models

@@ -1,0 +1,11 @@
+parstext_dir: "ParsText/data/aligned/csv"
+stibiumghost_dir: "data/raw/stibiumghost"
+processed_dir: "data/processed"
+train_split: 0.8
+val_split: 0.1
+test_split: 0.1
+batch_size: 16
+num_workers: 8
+seed: 42
+ngram_dedup_threshold: 0.3
+ngram_dedup_order: 8

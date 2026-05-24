@@ -1,0 +1,11 @@
+name: byt5
+model_name: "google/byt5-small"
+max_length: 512
+use_cycle_loss: true
+use_ezafe_head: true
+ezafe_head_hidden: 128
+beam_size: 4
+val_beam_size: 1
+val_max_new_tokens: 256
+prefix_to_tajik: "to_tajik: "
+prefix_to_farsi: "to_farsi: "

@@ -1,0 +1,11 @@
+mlflow_uri: "http://127.0.0.1:8080"
+mlflow_experiment: "persian-tajik-translit-eval"
+beam_size: 4
+onnx_dir: "models/onnx"
+triton_url: "localhost:8000"
+triton_model_name: "byt5_translit"
+wiki_dump_path: "tgwiki-latest-pages-articles.xml.bz2"
+labse_threshold: 0.85
+flores_dataset: "openlanguagedata/flores_plus"
+flores_tajik_col: "tgk_Cyrl"
+flores_persian_col: "pes_Arab"
