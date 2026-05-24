@@ -25,7 +25,6 @@ env/
 data/raw/
 data/processed/
 models/
-plots/
 
 # MLflow
 mlruns/
