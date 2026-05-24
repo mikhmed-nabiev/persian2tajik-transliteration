@@ -1,9 +1,9 @@
 """Inference entry point — loads ONNX model, auto-detects model type.
 
 Usage:
-    python infer.py "به نام خداوند جان و خرد"                          # byt5 fa→tg
-    python infer.py "Ба номи Худованд" --direction tg2fa                 # byt5 tg→fa
-    python infer.py "به نام" --onnx_dir models/onnx/lstm                 # LSTM
+    python infer.py "به نام خداوند جان و خرد"                          # LSTM fa→tg (default)
+    python infer.py "Ба номи Худованд" --direction tg2fa                 # LSTM tg→fa (default)
+    python infer.py "به نام" --onnx_dir models/onnx/lstm                 # LSTM (explicit)
     python infer.py "به نام" --onnx_dir models/onnx/char_transformer     # char-transformer
     python infer.py --input_file sentences.txt                           # batch from file
 """
@@ -12,7 +12,7 @@ import json
 import sys
 from pathlib import Path
 
-ONNX_DIR = "models/onnx_int8"
+ONNX_DIR = "models/onnx_int8/lstm"
 PAD_IDX, BOS_IDX, EOS_IDX, UNK_IDX = 0, 1, 2, 3
 
 
