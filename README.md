@@ -155,8 +155,14 @@ python train.py train.lr=1e-4 train.batch_size=8
 ``` -->
 
 ```bash
-# Classical LSTM baseline
+# Train LSTM
 python train.py model=lstm
+
+# Quick smoke test (200 training steps, validate every 50)
+python train.py model=lstm train.max_steps=200 train.val_check_interval=50
+
+# Without a running MLflow server (logs to ./mlruns locally)
+python train.py model=lstm train.mlflow_uri=file:./mlruns
 
 # Override any config value on the command line (Hydra syntax)
 python train.py model=lstm train.lr=1e-4 train.batch_size=8
