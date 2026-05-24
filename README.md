@@ -173,53 +173,6 @@ All metrics are logged to MLflow at `http://127.0.0.1:8080`.
 
 ---
 
-## Infer
-
-```bash
-# Single Farsi → Tajik (defaults to models/onnx_int8/)
-python infer.py "به نام خداوند جان و خرد"
-
-# Single Tajik → Farsi
-python infer.py "Ба номи Худованд ҷону хирад" --direction tg2fa
-
-# Use a specific model directory (auto-detected: lstm)
-python infer.py "به نام" --onnx_dir models/onnx/lstm
-
-# Batch from file (one sentence per line)
-python infer.py --input_file sentences.txt --output_file results.txt
-
-# Via commands.py
-python commands.py infer "سلام دنیا" --onnx_dir models/onnx/lstm
-```
-
-`infer.py` auto-detects the model type from the ONNX files in the directory.
-Run export first if the ONNX model is not present (see Export section below).
-
-> **Note:** Persian/Tajik text pasted into a terminal may display reversed — this is a
-> terminal RTL rendering limitation. The actual string passed to the program is correct.
-
----
-
-<!-- ## OOD Evaluation
-
-```bash
-# Both FLORES-200 and Wikipedia
-python eval_ood.py
-
-# FLORES-200 only
-python eval_ood.py --source flores
-
-# Wikipedia only
-python eval_ood.py --source wiki
-
-# From a specific checkpoint
-python eval_ood.py --checkpoint_path models/byt5-epoch=05-val_chrf_pp=82.50.ckpt
-``` -->
-
-<!-- Results are logged to MLflow under the `persian-tajik-translit-eval` experiment. -->
-
-<!-- --- -->
-
 ## Export
 
 ### ONNX export
@@ -227,9 +180,7 @@ python eval_ood.py --checkpoint_path models/byt5-epoch=05-val_chrf_pp=82.50.ckpt
 <!-- All four model types are supported. The output files vary by architecture: -->
 
 | Model  | Files produced                                    |
-| ------ | ------------------------------------------------- | ------------------------------------------------- | --- |
-| <!--   | `byt5`, `mt5`                                     | `encoder.onnx`, `decoder.onnx`                    | --> |
-| <!--   | `char_transformer`, `lstm`                        | `encoder.onnx`, `decoder_step.onnx`, `vocab.json` | --> |
+| ------ | ------------------------------------------------- |
 | `lstm` | `encoder.onnx`, `decoder_step.onnx`, `vocab.json` |
 
 <!-- ```bash
@@ -314,6 +265,53 @@ python infer.py "به نام خداوند" --onnx_dir models/onnx_int8/lstm
 ```
 
 ---
+
+## Infer
+
+```bash
+# Single Farsi → Tajik (defaults to models/onnx_int8/)
+python infer.py "به نام خداوند جان و خرد"
+
+# Single Tajik → Farsi
+python infer.py "Ба номи Худованд ҷону хирад" --direction tg2fa
+
+# Use a specific model directory (auto-detected: lstm)
+python infer.py "به نام" --onnx_dir models/onnx/lstm
+
+# Batch from file (one sentence per line)
+python infer.py --input_file sentences.txt --output_file results.txt
+
+# Via commands.py
+python commands.py infer "سلام دنیا" --onnx_dir models/onnx/lstm
+```
+
+`infer.py` auto-detects the model type from the ONNX files in the directory.
+Run export first if the ONNX model is not present (see Export section below).
+
+> **Note:** Persian/Tajik text pasted into a terminal may display reversed — this is a
+> terminal RTL rendering limitation. The actual string passed to the program is correct.
+
+---
+
+<!-- ## OOD Evaluation
+
+```bash
+# Both FLORES-200 and Wikipedia
+python eval_ood.py
+
+# FLORES-200 only
+python eval_ood.py --source flores
+
+# Wikipedia only
+python eval_ood.py --source wiki
+
+# From a specific checkpoint
+python eval_ood.py --checkpoint_path models/byt5-epoch=05-val_chrf_pp=82.50.ckpt
+``` -->
+
+<!-- Results are logged to MLflow under the `persian-tajik-translit-eval` experiment. -->
+
+<!-- --- -->
 
 ## Inference server
 
